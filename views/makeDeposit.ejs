@@ -1,0 +1,380 @@
+<div id="preloader" class="loader">
+    <div class='sk-three-bounce'>
+        <div class='sk-bounce-1 sk-child'></div>
+        <div class='sk-bounce-2 sk-child'></div>
+        <div class='sk-bounce-3 sk-child'></div>
+    </div>
+</div>
+<div id="pjax-container">
+    <div id="block-content" class="page--cabinet">
+        <header class="header-bull header--cabinet">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="topline header__topline">
+                            <div class="topline__logo">
+                                <a href="/" class="logo" data-pjax>
+                                    <img src="/assets/img/logo-img.svg" alt="Golden" style="width: 180px;">
+                                </a>
+                            </div>
+                            <div class="topline__controls">
+                                <div class="dropdown topline__dropdown">
+                                    <a href="#" class="dropdown-toggle userdropdown topline__userdropdown"
+                                        id="userDropdown" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="true">
+                                        <%= req.user.username%>
+                                            <span class="caret userdropdown__caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                        <li> <a href="/dashboard" data-pjax>
+                                                Dashboard
+                                            </a>
+                                        </li>
+                                        <li> <a href="/contact" data-pjax>
+                                                Support
+                                            </a>
+                                        </li>
+                                        <li> <a href="/logout">
+                                                Log out
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <span class="burger header__burger" id="js-menu-burger">
+                                    <i class="fa fa-bars"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <nav class="menu header__menu" id="js-menu"> <a href="/dashboard" class="menu__link"
+                                id="js-sidebar-cabinet" data-pjax>
+                                Dashboard
+                            </a>
+                            <a href="/deposit" class="menu__link" id="js-sidebar-invest" data-pjax>
+                                Add Deposit
+                            </a>
+                            <a href="/withdraw" class="menu__link" id="js-sidebar-withdraw" data-pjax>
+                                Withdraw
+                            </a>
+                            <a href="/deposits" class="menu__link" id="js-sidebar-deposits" data-pjax>
+                                Deposits
+                            </a>
+                            <a href="/history" class="menu__link" id="js-sidebar-history" data-pjax>
+                                History
+                            </a>
+                            <a href="/settings" class="menu__link" id="js-sidebar-settings" data-pjax>
+                                Settings
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <link rel="stylesheet" href="/assets/css/plans.css">
+        <section class="content bagblack">
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-lg-12">
+                        <div class="card" style="margin-top: 30px">
+                            <div class="body block-header">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-8 col-sm-12">
+                                        <h2>Welcome, <%= req.user.username%>
+                                        </h2>
+                                        <ul class="breadcrumb p-l-0 p-b-0 ">
+                                            <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"></i></a>
+                                            </li>
+                                            <li class="breadcrumb-item"><a href="/dashabord">Dashboard</a>
+                                            </li>
+                                            <li class="breadcrumb-item active">Make an Investment</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-4 col-sm-12 text-right">
+                                        <a href="/deposit">
+                                            <button
+                                                class="btn btn-primary btn-round btn-simple float-right hidden-xs m-l-10 btn-warning waves-effect">Make
+                                                an investment</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <form method="POST" name="spendform">
+                    <div class="row clearfix">
+                        <div class="col-xl-8 col-lg-8 col-md-8 ">
+                            <div class="card" style="min-height: 428px;">
+                                <div class="headeraccount">
+                                    <h2>Complete <strong>Deposit </strong></h2>
+                                </div>
+                                <div class="body">
+
+                                    <div class="row" id="planselectz">
+                                        <div class="col-12 mb-4">
+                                            <p class="lead">To Fund Your account, You are to Pay <%= req.user.currency%> <%=typeof amount !='undefined' ? amount : 200.00%> using any of the following payment methods:</p>
+                                        </div>
+
+                                        <!-- Bitcoin Payment -->
+                                        <div class="col-md-12 mb-4">
+                                            <div class="card crypto-card">
+                                                <div class="card-header bg-warning">
+                                                    <h4 class="mb-0">Bitcoin (BTC)</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-md-8">
+                                                            <h5>Wallet Address:</h5>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" value="bc1qthsl6s08yafna3q69hfpu4zau9qmtu09wmvc8r" readonly>
+                                                                <br/>
+                                                                <br/>
+                                                                <br/>
+                                                                <div class="input-group-append">
+                                                                    <button type="button" class="btn btn-warning js-copy" data-text="bc1qthsl6s08yafna3q69hfpu4zau9qmtu09wmvc8r">
+                                                                        Copy
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 text-center">
+                                                            <img src="/assets/img/btc-qr.png" class="img-fluid qr-code" alt="Bitcoin QR Code">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Ethereum Payment -->
+                                        <div class="col-md-12 mb-4">
+                                            <div class="card crypto-card">
+                                                <div class="card-header bg-info">
+                                                    <h4 class="mb-0"><i class="fab fa-ethereum"></i> Ethereum (ETH)</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-md-8">
+                                                            <h5>Wallet Address:</h5>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" value="0x742d35Cc6634C0532925a3b844Bc454e4438f44e" readonly>
+                                                                <br/>
+                                                                <br/>
+                                                                <br/>
+                                                                <div class="input-group-append">
+                                                                    <button type="button" class="btn btn-info js-copy" data-text="0x742d35Cc6634C0532925a3b844Bc454e4438f44e">
+                                                                        Copy
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 text-center">
+                                                            <img src="/assets/img/eth-qr.png" class="img-fluid qr-code" alt="Ethereum QR Code">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- BNB Payment -->
+                                        <div class="col-md-12 mb-4">
+                                            <div class="card crypto-card">
+                                                <div class="card-header bg-warning">
+                                                    <h4 class="mb-0"><i class="fas fa-coins"></i> BNB (BSC)</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-md-8">
+                                                            <h5>Wallet Address:</h5>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" value="bnb1u2jjfqp6w5jhwz4djy6r6f8dnxqcgxz3v7hhk9" readonly>
+                                                                <br/>
+                                                                <br/>
+                                                                <br/>
+                                                                <div class="input-group-append">
+                                                                    <button type="button" class="btn btn-warning js-copy" data-text="bnb1u2jjfqp6w5jhwz4djy6r6f8dnxqcgxz3v7hhk9">
+                                                                        Copy
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 text-center">
+                                                            <img src="/assets/img/bnb-qr.png" class="img-fluid qr-code" alt="BNB QR Code">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="alert alert-info">
+                                                <i class="fas fa-info-circle"></i> After making payment, please contact support with your transaction details for quick confirmation.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <style>
+                                        .crypto-card {
+                                            border: none;
+                                            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+                                            margin-bottom: 20px;
+                                        }
+                                        .crypto-card .card-header {
+                                            color: white;
+                                            padding: 15px;
+                                        }
+                                        .crypto-card .card-header h4 {
+                                            font-size: 1.2rem;
+                                            margin: 0;
+                                        }
+                                        .crypto-card .card-body {
+                                            padding: 20px;
+                                        }
+                                        .qr-code {
+                                            max-width: 150px;
+                                            margin: 10px auto;
+                                        }
+                                        .input-group {
+                                            margin-bottom: 10px;
+                                        }
+                                        .form-control {
+                                            background-color: #f8f9fa;
+                                            border: 1px solid #dee2e6;
+                                        }
+                                        .btn-copy {
+                                            min-width: 80px;
+                                        }
+                                        .alert {
+                                            margin-top: 20px;
+                                        }
+                                    </style>
+
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            const copyButtons = document.querySelectorAll('.js-copy');
+                                            
+                                            copyButtons.forEach(button => {
+                                                button.addEventListener('click', function(e) {
+                                                    e.preventDefault(); // Prevent form submission
+                                                    const textToCopy = this.getAttribute('data-text');
+                                                    
+                                                    // Create temporary input element
+                                                    const tempInput = document.createElement('input');
+                                                    tempInput.value = textToCopy;
+                                                    document.body.appendChild(tempInput);
+                                                    
+                                                    // Select and copy text
+                                                    tempInput.select();
+                                                    document.execCommand('copy');
+                                                    
+                                                    // Remove temporary element
+                                                    document.body.removeChild(tempInput);
+                                                    
+                                                    // Change button text temporarily
+                                                    const originalText = this.innerHTML;
+                                                    this.innerHTML = 'Copied!';
+                                                    setTimeout(() => {
+                                                        this.innerHTML = originalText;
+                                                    }, 2000);
+                                                });
+                                            });
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                </form>
+
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+
+                        <div class="row" style="margin-top:50px;">
+                            <div class="col-md-12">
+                                <div class="row equal">
+                                    <div class="col-xl-8 col-lg-8 col-md-12 no-padding wow fadeInLeft"
+                                        data-wow-delay="0.2s"
+                                        style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;min-height: 180px;">
+                                        <div class="incrop-left" style="min-height: 100%;">
+                                            <div class="incrop-left-img">
+                                                <img src="/assets/img/uk.png">
+                                                <h4 class="step__title" style="padding-bottom: 15px;color:#facd8a;">UK
+                                                    Registered Company</h4>
+                                                <p>Genesispro Trading is a fully registered and licensed company in UK.
+                                                    Genesispro Trading is powered by the latest and most secure form of SSL
+                                                    data encryption to keep all your data and information safe and
+                                                    secure.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="topline footer__topline">
+                                    <a href="/" class="logo topline__logo">
+                                        <img src="/assets/img/logo.png" alt="Golden" style="width: 180px;">
+                                    </a>
+                                    <nav class="menu topline__menu footer__menu"> <a href="/" class="menu__link"
+                                            data-pjax>
+                                            Home
+                                        </a>
+                                        <a href="/about" class="menu__link" data-pjax>
+                                            About us
+                                        </a>
+                                        <a href="/investment" class="menu__link" data-pjax>
+                                            Investment
+                                        </a>
+                                        <a href="/partners" class="menu__link" data-pjax>
+                                            Partners
+                                        </a>
+                                        <a href="/terms" class="menu__link" data-pjax>
+                                            Terms
+                                        </a>
+                                        <a href="/contact" class="menu__link" data-pjax>
+                                            Contact us
+                                        </a>
+                                    </nav>
+                                    <div class="footer__socfooter topline__controls" style="height: initial;">
+                                        <a></a>
+                                        <a></a>
+                                        <a href="https://www.facebook.com" target="_blank">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                        <a href="https://twitter.com" target="_blank">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                        <a href="https://youtube.com" target="_blank">
+                                            <i class="fa fa-youtube"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer__copyright">
+                            2021 Genesispro Trading. ALL RIGHTS RESERVED.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <link rel="stylesheet" href="/assets/libs/bootstrap/fileinput.min.css">
+    <script src="/assets/libs/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/libs/bootstrap/fileinput.min.js"></script>
+    <script src="/assets/libs/jquery/jquery-1.9.1.min.js"></script>
+    <script>
+        document.write("<script type='text/javascript' src='/assets/js/data.js?v=" + Date.now() + "'><\/script>");
+
+    </script>
+
+</div>
